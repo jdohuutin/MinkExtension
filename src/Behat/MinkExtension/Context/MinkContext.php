@@ -544,7 +544,7 @@ class MinkContext extends RawMinkContext implements TranslatableContext
      *
      * @return array
      */
-    public static function getTranslationResources()
+    public static function getTranslationResources(): array
     {
         return self::getMinkTranslationResources();
     }
@@ -554,7 +554,7 @@ class MinkContext extends RawMinkContext implements TranslatableContext
      *
      * @return array
      */
-    public static function getMinkTranslationResources()
+    public static function getMinkTranslationResources(): array
     {
         return glob(__DIR__.'/../../../../i18n/*.xliff');
     }

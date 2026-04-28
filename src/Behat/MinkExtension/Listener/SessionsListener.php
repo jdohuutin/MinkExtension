@@ -59,7 +59,7 @@ class SessionsListener implements EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return array(
             ScenarioTested::BEFORE   => array('prepareDefaultMinkSession', 10),
@@ -79,11 +79,11 @@ class SessionsListener implements EventSubscriberInterface
      * `@insulated` tag will cause Mink to stop current sessions before scenario
      * instead of just soft-resetting them
      *
-     * @param ScenarioLikeTested $event
+     * @param ScenarioTested $event
      *
      * @throws ProcessingException when the @javascript tag is used without a javascript session
      */
-    public function prepareDefaultMinkSession(ScenarioLikeTested $event)
+    public function prepareDefaultMinkSession(ScenarioTested $event): void
     {
         $scenario = $event->getScenario();
         $feature  = $event->getFeature();

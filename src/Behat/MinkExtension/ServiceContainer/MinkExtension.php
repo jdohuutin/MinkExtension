@@ -76,7 +76,7 @@ class MinkExtension implements ExtensionInterface
     /**
      * {@inheritDoc}
      */
-    public function load(ContainerBuilder $container, array $config)
+    public function load(ContainerBuilder $container, array $config): void
     {
         if (isset($config['mink_loader'])) {
             $basePath = $container->getParameter('paths.base');
@@ -108,7 +108,7 @@ class MinkExtension implements ExtensionInterface
     /**
      * {@inheritDoc}
      */
-    public function configure(ArrayNodeDefinition $builder)
+    public function configure(ArrayNodeDefinition $builder): void
     {
         // Rewrite keys to define a shortcut way without allowing conflicts with real keys
         $renamedKeys = array_diff(
@@ -177,7 +177,7 @@ class MinkExtension implements ExtensionInterface
     /**
      * {@inheritDoc}
      */
-    public function getConfigKey()
+    public function getConfigKey(): string
     {
         return 'mink';
     }
@@ -185,14 +185,14 @@ class MinkExtension implements ExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function initialize(ExtensionManager $extensionManager)
+    public function initialize(ExtensionManager $extensionManager): void
     {
     }
 
     /**
      * {@inheritDoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $this->processSelectors($container);
     }
